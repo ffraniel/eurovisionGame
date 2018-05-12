@@ -1,0 +1,23 @@
+img {
+    max-width: 30%;
+}
+
+button{
+    margin-top: 40px;
+      font-size: large;
+      color:rgb(187, 179, 153);
+      background-color:rgba(0, 0, 0, 0.623);
+      border:none;
+      border-radius:2px;
+}
+    
+button:hover {
+    font-size: medium;
+    color:rgb(187, 179, 153);
+    background-color:black;
+}
+    
+button:active {
+    border:solid white 2px;
+    border-radius:2px;
+}

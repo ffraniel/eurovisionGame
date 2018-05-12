@@ -14,6 +14,9 @@ class App extends Component {
 
   startGame (e) {
     e.preventDefault();
+    this.state.gameActive ?  this.setState({
+      gameActive:false
+    }) :
     this.setState({
       gameActive:true
     })
@@ -23,11 +26,12 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Eurovision_Song_Contest_logo.svg/1280px-Eurovision_Song_Contest_logo.svg.png" className="App-logo" alt="eurovision logo spinning" />
-          <h1 className="App-title">EUROVISION LYRICS GAME</h1>
+          {!this.state.gameActive &&  <img src="https://upload.wikimedia.org/wikipedia/ru/thumb/3/3a/Eurovision_Song_Contest_logo.svg/1280px-Eurovision_Song_Contest_logo.svg.png" className="App-logo" alt="eurovision logo spinning" />}
         </header>
-        {!this.state.gameActive && <Intro startGame={this.startGame} /> }
-        {this.state.gameActive && <GamePlay startGame={this.startGame} />}
+        <div className="center">
+          {!this.state.gameActive && <Intro startGame={this.startGame} /> }
+          {this.state.gameActive && <GamePlay startGame={this.startGame} />}
+        </div>
       </div>
     );
   }

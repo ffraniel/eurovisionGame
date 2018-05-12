@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   background-color: blue;
-  height:100vh;
   color:white;
+  padding-bottom:50%;
 }
 
 .App-logo {
@@ -12,11 +12,11 @@
   filter: invert(100%);
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.center{
+  padding:10% 0 0 0;
 }
