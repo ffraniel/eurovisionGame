@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './GamePlay.css';
-import lyrics from './EurovisionLyrics';
+import lyrics from './lyricsJson.json';
 import Answer from './Answer';
 import Question from './Question';
 import GameEnd from './GameEnd';
@@ -16,7 +16,8 @@ class GamePlay extends Component {
       currentRound:1,
       previousSongs:[],
       answerCorrect:'',
-      points:0
+      points:0,
+      lyricalSnippet:''
     }
     this.giveAnswer = this.giveAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
@@ -52,20 +53,22 @@ class GamePlay extends Component {
         }
       }
     }
+    let snippetArray = songChoice.lyrics.split(" ");
+    let start = Math.round(Math.random() * (snippetArray.length / 2));
+    let possibleLengths = [30, 50, 20, 40];
+    let snippetLength = possibleLengths[Math.round(Math.random() * possibleLengths.length)];
+    let end = start + snippetLength;
+    let snippet = snippetArray.slice(start, end).join(" ");
+
     let previousSongsState = this.state.previousSongs;
     previousSongsState.push(songChoice.country);
     this.setState({
       currentAnswer:songChoice,
       currentChoice:options,
-      previousSongs:previousSongsState
+      previousSongs:previousSongsState,
+      lyricalSnippet:snippet
     })
   }
-
-  //display currentRound
-  // on load select random song 
-  //add to currentAnswer and previousSongs
-  // show 6 countries chosen at random
-  // select a random snippet of the text and show it
   
   giveAnswer(answer){
     if(answer === this.state.currentAnswer.country){
@@ -103,8 +106,8 @@ class GamePlay extends Component {
             {this.state.currentRound < 6 && 
             <div>
               <h3>Round {this.state.currentRound}</h3>
-              <h4>Points {this.state.points}</h4>
-              {this.state.questionModeTrueAnswerModeFalse && this.state.currentAnswer && <Question answer={this.state.currentAnswer} options={this.state.currentChoice} giveAnswer={this.giveAnswer}/>}
+              <h4>Points <span>{this.state.points}</span></h4>
+              {this.state.questionModeTrueAnswerModeFalse && this.state.lyricalSnippet && <Question answer={this.state.currentAnswer} options={this.state.currentChoice} giveAnswer={this.giveAnswer} snippet={this.state.lyricalSnippet} />}
               {!this.state.questionModeTrueAnswerModeFalse && <Answer answer={this.state.currentAnswer} answerCorrect={this.state.answerCorrect} nextQuestion={this.nextQuestion}/>}
             </div>}
             {this.state.currentRound === 6 && <GameEnd startGame={this.props.startGame} points={this.state.points} />}            

@@ -5,7 +5,8 @@ class Question extends Component {
     render() {
       return (
           <div className="question">
-            <h4>"{this.props.answer.lyrics}"</h4>
+          {console.log(this.props.options)}
+            <h4>"....{this.props.snippet}...."</h4>
             <div className="choiceOfNations">
                 {this.props.options.map((song, key)=>{
                     return (
