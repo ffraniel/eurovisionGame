@@ -9,6 +9,7 @@ class GameEnd extends Component {
           <div>
             <h3>Poor effort! Try again!</h3>
             <h2>{this.props.points}/5</h2>
+            <img src="./images/poorscore.jpeg" alt="kid with bad score" />
           </div>
         )}
         {this.props.points > 2 &&
@@ -16,6 +17,7 @@ class GameEnd extends Component {
             <div>
               <h3>Could do better! Try again!</h3>
               <h2>{this.props.points}/5</h2>
+              <img src="./images/badscore.jpeg" alt="guy with bad score" />
             </div>
           )}
         {this.props.points >= 4 &&
@@ -23,12 +25,14 @@ class GameEnd extends Component {
             <div>
               <h3>Not bad knowledge!</h3>
               <h2>{this.props.points}/5</h2>
+              <img src="./images/Thumbs_Up_Face_Head.jpg" alt="guy who has a thumbe for a face" />
             </div>
           )}
         {this.props.points >= 5 && (
           <div>
             <h3>Superb!</h3>
             <h2>{this.props.points}/5</h2>
+            <h4>You'll go far, my friend. Have some "smouldering" as a reward.</h4>
             <img
               src="https://cdn.images.dailystar.co.uk/dynamic/46/photos/785000/RYLAN-688785.jpg"
               alt="Rylan"
