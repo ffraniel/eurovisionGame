@@ -1,29 +1,13 @@
 .gamePlay{
   padding:0 10% 0 10%;
 }
-h4 span{
-  color:rgb(9, 34, 114);
+.gamePlay div h3{
+  text-shadow: 3px 3px rgba(126, 122, 122, 0.384);
 }
 
-.restart-button {
-  margin-top: 40px;
-    font-size: large;
-    color:rgb(187, 179, 153);
-    background-color:rgba(0, 0, 0, 0.623);
-    border:none;
-    border-radius:2px;
-  }
-  
-  .restart-button:hover {
-    font-size: medium;
-    color:rgb(187, 179, 153);
-    background-color:black;
-  }
-  
-  .restart-button:active {
-    border:solid white 2px;
-    border-radius:2px;
-  }
+.points{
+  text-shadow: 1.5px 1px rgba(180, 173, 173, 0.637);
+}
 
   .low-logo{
     

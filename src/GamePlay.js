@@ -114,7 +114,7 @@ class GamePlay extends Component {
             {this.state.currentRound < 6 && 
             <div>
               <h3>Round {this.state.currentRound}/5</h3>
-              <h4>Points <span>{this.state.points}</span></h4>
+              <h4 className="points">Current Score: <span>{this.state.points}</span></h4>
               {this.state.questionModeTrueAnswerModeFalse && <Question answer={this.state.currentAnswer} options={this.state.currentChoice} giveAnswer={this.giveAnswer} snippet={this.state.lyricalSnippet} />}
               {!this.state.questionModeTrueAnswerModeFalse && <Answer answer={this.state.currentAnswer} answerCorrect={this.state.answerCorrect} nextQuestion={this.nextQuestion}/>}
             </div>}
