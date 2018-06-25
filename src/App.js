@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Intro from './Intro';
 import GamePlay from './GamePlay';
+import LinkWeb from './LinkWeb.js';
 
 class App extends Component {
   constructor(props){
@@ -32,6 +33,7 @@ class App extends Component {
           {!this.state.gameActive && <Intro startGame={this.startGame} /> }
           {this.state.gameActive && <GamePlay startGame={this.startGame} />}
         </div>
+        <LinkWeb />
       </div>
     );
   }
